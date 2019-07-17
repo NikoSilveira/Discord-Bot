@@ -71,6 +71,7 @@ public class Commands extends ListenerAdapter{
 			}
 			
 			event.getChannel().sendMessage(pingEmbed.build()).queue();
+			pingEmbed.clear();
 			
 		}
 		
