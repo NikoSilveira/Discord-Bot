@@ -42,13 +42,37 @@ public class Commands extends ListenerAdapter{
 			misaki.clear();
 			
 		}
-		else if(args[0].equalsIgnoreCase(Main.prefix + "AraAra")) {			//Ara Ara
+		else if(args[0].equalsIgnoreCase(Main.prefix + "ara")) {			//Ara Ara
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("Ara Ara " + event.getAuthor().getName() + " ⭐").queue();
 			
 		}
-		
+		else if(args[0].equalsIgnoreCase(Main.prefix + "ping")) {			//Show latency
+			
+			event.getChannel().sendTyping().queue();
+			long ping = event.getJDA().getPing();
+			
+			EmbedBuilder pingEmbed = new EmbedBuilder();
+			pingEmbed.setTitle("Your ping is: ");
+			pingEmbed.setDescription(""+ping+" ms");
+			
+			if(ping <= 100) {
+				//Good lat - green
+				pingEmbed.setColor(0x05ab08);
+			}
+			else if(ping > 100 && ping <= 190) {
+				//regular lat - yellow
+				pingEmbed.setColor(0xe8c205);
+			}
+			else if(ping > 190) {
+				//bad lat - red
+				pingEmbed.setColor(0xfa0505);
+			}
+			
+			event.getChannel().sendMessage(pingEmbed.build()).queue();
+			
+		}
 		
 		
 	}
