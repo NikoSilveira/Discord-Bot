@@ -30,7 +30,7 @@ public class Main {
 		Scanner sc = new Scanner(file);
 		
 		try {
-			jda = new JDABuilder(AccountType.BOT).setToken(sc.nextLine()).buildAsync();
+			jda = new JDABuilder(AccountType.BOT).setToken(sc.nextLine()).build();
 		} finally {
 			sc.close();
 		}
