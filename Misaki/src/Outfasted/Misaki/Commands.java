@@ -60,11 +60,11 @@ public class Commands extends ListenerAdapter{
 			pingEmbed.setTitle("Your ping is: ");
 			pingEmbed.setDescription(""+ping+" ms");
 			
-			if(ping <= 100) {
+			if(ping <= 90) {
 				//Good lat - green
 				pingEmbed.setColor(0x05ab08);
 			}
-			else if(ping > 100 && ping <= 190) {
+			else if(ping > 100 && ping <= 150) {
 				//regular lat - yellow
 				pingEmbed.setColor(0xe8c205);
 			}
