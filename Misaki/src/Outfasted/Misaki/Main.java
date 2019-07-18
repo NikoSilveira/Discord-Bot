@@ -15,7 +15,7 @@ import net.dv8tion.jda.core.entities.Game;
 public class Main {
 	
 	public static JDA jda;
-	public static String prefix = "-";
+	public static String prefix = "--";
 	
 	
 	//Main method
@@ -32,7 +32,7 @@ public class Main {
 		}
 		
 		jda.getPresence().setStatus(OnlineStatus.IDLE);
-		jda.getPresence().setGame(Game.watching("Toaru Kagaku no Accelerator. || -commands"));
+		jda.getPresence().setGame(Game.watching("Toaru Kagaku no Accelerator. || --commands"));
 		
 		jda.addEventListener(new Commands());
 		jda.addEventListener(new Events());

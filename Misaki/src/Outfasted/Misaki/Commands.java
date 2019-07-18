@@ -16,9 +16,12 @@ public class Commands extends ListenerAdapter{
 		if(args[0].equalsIgnoreCase(Main.prefix + "commands")) {			//Display embed with list of commands
 			
 			EmbedBuilder commands = new EmbedBuilder();
-			commands.setTitle("What do you need? ⭐");
-			//commands.setDescription("");
-			//commands.addField("Creator","Outfasted",false);
+			commands.setTitle("What do you need? ⭐\n");
+			commands.setDescription
+			("**--ara:** misaki sends a small greet to you\n"
+				+ "**--commands**: display misaki's list of commands\n"
+				+ "**--misaki:** display bot info\n");
+			
 			commands.setColor(0xe8c205);
 			
 			event.getChannel().sendTyping().queue();
