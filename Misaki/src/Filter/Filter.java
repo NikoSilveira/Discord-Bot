@@ -1,5 +1,6 @@
-package Outfasted.Misaki;
+package Filter;
 
+import Commands.Commands;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 

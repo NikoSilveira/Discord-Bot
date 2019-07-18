@@ -1,4 +1,4 @@
-package Outfasted.Misaki;
+package Events;
 
 import java.util.Random;
 
