@@ -98,11 +98,20 @@ public class Commands extends ListenerAdapter{
 			
 			int number = rand.nextInt(2);
 			
+			EmbedBuilder coinEmbed = new EmbedBuilder();
+			
+			//coinEmbed.setImage(url)
+			
 			if(number == 0) {
-				event.getChannel().sendMessage("Heads!").queue();
+				coinEmbed.setTitle("Heads!");
+				//event.getChannel().sendMessage("Heads!").queue();
 			}else if(number == 1) {
-				event.getChannel().sendMessage("Tails!").queue();
+				coinEmbed.setTitle("Tails!");
+				//event.getChannel().sendMessage("Tails!").queue();
 			}
+			
+			event.getChannel().sendMessage(coinEmbed.build()).queue();
+			coinEmbed.clear();
 			
 		}
 		
@@ -123,6 +132,18 @@ public class Commands extends ListenerAdapter{
 			}else if(number == 5) {
 				event.getChannel().sendMessage("6").queue();
 			}
+		}
+		
+		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//invite
+			
+			if(args.length == 1) {
+				event.getChannel().sendMessage("To use the invite command correctly, type: **--invite create**").queue();
+			}
+			else if(args[1].equalsIgnoreCase("create")){
+				event.getChannel().sendMessage("Ara " + event.getAuthor().getName() + ", want to invite someone?").queue();
+				event.getChannel().sendMessage("" + event.getChannel().createInvite().complete().getURL()).queue();
+			}
+			
 		}
 		
 		
