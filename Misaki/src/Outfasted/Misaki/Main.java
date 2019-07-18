@@ -37,5 +37,6 @@ public class Main {
 		jda.addEventListener(new Commands());
 		jda.addEventListener(new Events());
 		jda.addEventListener(new Reactions());
+		jda.addEventListener(new Filter());
 	}
 }

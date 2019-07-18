@@ -67,7 +67,7 @@ public class Commands extends ListenerAdapter{
 			long ping = event.getJDA().getPing();
 			
 			EmbedBuilder pingEmbed = new EmbedBuilder();
-			pingEmbed.setTitle("Your ping is: ");
+			pingEmbed.setTitle(event.getAuthor().getName() + ", your ping is: ");
 			pingEmbed.setDescription(""+ping+" ms");
 			
 			if(ping <= 90) {
@@ -134,7 +134,7 @@ public class Commands extends ListenerAdapter{
 			}
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//invite
+		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//invite create
 			
 			if(args.length == 1) {
 				event.getChannel().sendMessage("To use the invite command correctly, type: **--invite create**").queue();
