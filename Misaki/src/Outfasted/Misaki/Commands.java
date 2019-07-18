@@ -8,6 +8,9 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class Commands extends ListenerAdapter{
 	
+	public static boolean filterEnabled = false;
+	
+	
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
@@ -137,14 +140,45 @@ public class Commands extends ListenerAdapter{
 		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//invite create
 			
 			if(args.length == 1) {
+				//Correct user if command improperly typed
 				event.getChannel().sendMessage("To use the invite command correctly, type: **--invite create**").queue();
 			}
 			else if(args[1].equalsIgnoreCase("create")){
+				//Generate invite link
 				event.getChannel().sendMessage("Ara " + event.getAuthor().getName() + ", want to invite someone?").queue();
 				event.getChannel().sendMessage("" + event.getChannel().createInvite().complete().getURL()).queue();
 			}
 			
 		}
+		
+		else if(args[0].equalsIgnoreCase(Main.prefix + "filter")) {		//chat filter
+			
+			if(args[1].equalsIgnoreCase("status")) {		//Check filter status
+				
+				if(filterEnabled == true) {
+					event.getChannel().sendMessage("The chat filter is enabled.").queue();
+				}
+				else if(filterEnabled == false) {
+					event.getChannel().sendMessage("The chat filter is disabled.").queue();
+				}
+				
+			}
+			else if(args[1].equalsIgnoreCase("toggle")) {	//Enable/disable filter
+				
+				if(filterEnabled == false) {
+					filterEnabled = true;
+					event.getChannel().sendMessage("The filter has been enabled").queue();
+				}
+				else if(filterEnabled == true) {
+					filterEnabled = false;
+					event.getChannel().sendMessage("The filter has been disabled").queue();
+				}
+				
+			}
+			
+		}
+		
+		
 		
 		
 	}

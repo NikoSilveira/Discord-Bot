@@ -12,18 +12,25 @@ public class Filter extends ListenerAdapter{
 		//Add words here
 		String[] nopeWords = {"banana", "platano"};
 		
-		for(int i=0; i < message.length; i++) {
+		if(Commands.filterEnabled == true) {	//verify if filtered is enabled
 			
-			for(int j=0; j < nopeWords.length; j++) {
+			for(int i=0; i < message.length; i++) {
 				
-				if (message[i].equalsIgnoreCase(nopeWords[j])) {
-					event.getMessage().delete().queue();			//delete
-					event.getChannel().sendMessage("Baka").queue();	//send warning
+				for(int j=0; j < nopeWords.length; j++) {
+					
+					if (message[i].equalsIgnoreCase(nopeWords[j])) {
+						event.getMessage().delete().queue();			//delete
+						event.getChannel().sendMessage("Baka").queue();	//send warning
+						
+						//TODO catch insufficient permission
+					}
+					
 				}
 				
 			}
 			
 		}
+		
 	}
 	
 }
