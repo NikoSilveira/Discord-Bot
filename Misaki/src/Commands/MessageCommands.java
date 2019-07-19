@@ -47,5 +47,20 @@ public class MessageCommands extends ListenerAdapter{
 			event.getChannel().sendMessage("F in the chat").queue();;
 			
 		}
+		
+		else if(args[0].equalsIgnoreCase(Main.prefix + "announce")) {	//Announcement
+			
+			args[0] = "";
+			
+			event.getMessage().delete().queue();
+			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " has an announcement: " + String.join(" ",args)).queue();
+		}
+		
+		else if(args[0].equalsIgnoreCase(Main.prefix + "call")) {		//Call everyone
+			
+			event.getMessage().delete().queue();;
+			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " is summoning you!").queue();
+			
+		}
 	}
 }
