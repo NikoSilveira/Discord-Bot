@@ -10,6 +10,10 @@ public class Filter extends ListenerAdapter{
 		
 		String[] message = event.getMessage().getContentRaw().split(" ");
 		
+		//No response to other bots
+		if (event.getAuthor().isBot())
+			return;
+		
 		//Add words here
 		String[] nopeWords = {"banana", "platano"};
 		

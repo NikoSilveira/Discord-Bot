@@ -7,6 +7,10 @@ public class Reactions extends ListenerAdapter{
 
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		
+		//No response to other bots
+		if (event.getAuthor().isBot())
+			return;
+		
 		//event.getMessage().addReaction("❌").queue();
 		
 	}

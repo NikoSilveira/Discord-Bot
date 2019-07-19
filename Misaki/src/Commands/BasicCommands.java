@@ -16,7 +16,9 @@ public class BasicCommands extends ListenerAdapter{
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
-		
+		//No response to other bots
+		if (event.getAuthor().isBot())
+            return;
 		
 		
 		//COMMANDS
