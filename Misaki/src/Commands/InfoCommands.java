@@ -53,11 +53,10 @@ public class InfoCommands extends ListenerAdapter{
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {			//Bot bio embed
-			
+			//TODO - add more detail to bio
 			EmbedBuilder misaki = new EmbedBuilder();
-			misaki.setTitle("Shokuhou Misaki desu! ⭐");
-			misaki.setDescription("Description");
-			misaki.addField("text","text",false);
+			misaki.setTitle("Misaki desu! ⭐");
+			misaki.setDescription("Multipurpose waifu capable of sending messages, reacting to events, managing chat filters, streaming music and more!");
 			misaki.setColor(0xe8c205);
 			misaki.setFooter("Created by OutFasted",null);
 			
