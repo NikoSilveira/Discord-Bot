@@ -27,17 +27,19 @@ public class InfoCommands extends ListenerAdapter{
 			commands.setDescription
 			( "\n*Info/help*\n"
 			+ "**--commands**: display misaki's list of commands\n"
-			+ "**--misaki:** display bot info\n"
+			+ "**--misaki:** display misaki's bio\n"
 			
 			+ "\n*Basic commands*\n"
 			+ "**--invite:** generate invite link to server\n"
 			+ "**--ping:** display user's latency\n"
 			
 			+ "\n*Text chat commands*\n"
-			+ "**--ara:** misaki sends a small greet to you\n"
+			+ "**--announce:** send an announcement through misaki\n"
+			+ "**--ara:** Misaki sends a small greet to you\n"
+			+ "**--call:** Misaki calls everyone out for you\n"
 			+ "**--f:** Misaki pays her respects in the chat\n"
-			+ "**--talk:** Send a message through misaki\n"
-			+ "**--talk del:** Send a message through misaki and delete command\n"
+			+ "**--talk:** send a message through misaki\n"
+			+ "**--talk del:** send a message through misaki and delete command\n"
 			
 			+ "\n*Random output commands*\n"
 			+ "**--coin:** throw a coin for heads or tails\n"
