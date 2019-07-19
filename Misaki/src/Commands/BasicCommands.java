@@ -31,20 +31,21 @@ public class BasicCommands extends ListenerAdapter{
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//Talk through bot
 			
-			
 			if(args[1].equalsIgnoreCase("del")) {	
 				
-				//talk and delete og message
-				event.getChannel().sendMessage("" + event.getMessage().getContentDisplay()).queue();
+				args[0] = "";	//Ignore command in String
+				
+				//Talk and delete og message
+				event.getChannel().sendMessage("" + String.join("",args)).queue();
 				event.getMessage().delete().queue();
-				//TODO delete command from text
 				
 			}
 			else {		
 				
+				args[0] = "";	//Ignore command in String
+				
 				//Talk w/o deleting og message
-				event.getChannel().sendMessage("" + event.getMessage().getContentDisplay()).queue();
-				//TODO delete command from text
+				event.getChannel().sendMessage("" + String.join("",args)).queue();
 				
 			}
 			
@@ -64,7 +65,7 @@ public class BasicCommands extends ListenerAdapter{
 				//Good lat - green
 				pingEmbed.setColor(0x05ab08);
 			}
-			else if(ping > 100 && ping <= 160) {
+			else if(ping > 90 && ping <= 160) {
 				//regular lat - yellow
 				pingEmbed.setColor(0xe8c205);
 			}
