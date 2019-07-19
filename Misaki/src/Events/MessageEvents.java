@@ -7,7 +7,7 @@ public class MessageEvents extends ListenerAdapter{
 
 public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		
-		String[] args = event.getMessage().getContentRaw().split("\\s+");
+		//String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
 		//No response to other bots
 		if (event.getAuthor().isBot()) {

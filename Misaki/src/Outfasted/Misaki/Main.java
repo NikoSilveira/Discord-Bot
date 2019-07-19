@@ -8,6 +8,7 @@ import javax.security.auth.login.LoginException;
 
 import Commands.BasicCommands;
 import Commands.FilterCommands;
+import Commands.InfoCommands;
 import Commands.RandomCommands;
 import Events.JoinLeaveEvents;
 import Events.MessageEvents;
@@ -28,7 +29,7 @@ public class Main {
 	//Main method
 	public static void main(String[] args) throws LoginException, FileNotFoundException{
 		
-		//Obtain token
+		//Scanner
 		File file = new File("C:\\Users\\Nicolas Silveira\\git\\Discord-Bot\\Misaki\\config.secrets");
 		Scanner sc = new Scanner(file);
 		
@@ -38,12 +39,14 @@ public class Main {
 			sc.close();
 		}
 		
+		//Assembly of functionalities
 		jda.getPresence().setStatus(OnlineStatus.IDLE);
 		jda.getPresence().setGame(Game.watching("Toaru Kagaku no Accelerator.  || --commands"));
 		
 		jda.addEventListener(new BasicCommands());
 		jda.addEventListener(new RandomCommands());
 		jda.addEventListener(new FilterCommands());
+		jda.addEventListener(new InfoCommands());
 		jda.addEventListener(new JoinLeaveEvents());
 		jda.addEventListener(new MessageEvents());
 		jda.addEventListener(new Reactions());
