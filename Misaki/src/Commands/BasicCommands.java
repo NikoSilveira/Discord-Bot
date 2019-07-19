@@ -106,7 +106,7 @@ public class BasicCommands extends ListenerAdapter{
 			}
 			else if(args[1].equalsIgnoreCase("create")){
 				//Generate invite link
-				event.getChannel().sendMessage("Ara " + event.getAuthor().getName() + ", want to invite someone?").queue();
+				event.getChannel().sendMessage("Ara " + event.getAuthor().getName() + ", want to invite someone? ✨").queue();
 				event.getChannel().sendMessage("" + event.getChannel().createInvite().complete().getURL()).queue();
 			}
 			
@@ -135,11 +135,11 @@ public class BasicCommands extends ListenerAdapter{
 					
 					if(filterEnabled == false) {
 						filterEnabled = true;
-						event.getChannel().sendMessage("The filter has been enabled").queue();
+						event.getChannel().sendMessage("The filter has been enabled ✔️").queue();
 					}
 					else if(filterEnabled == true) {
 						filterEnabled = false;
-						event.getChannel().sendMessage("The filter has been disabled").queue();
+						event.getChannel().sendMessage("The filter has been disabled ❌").queue();
 					}
 					
 				}
