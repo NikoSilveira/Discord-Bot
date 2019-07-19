@@ -9,6 +9,7 @@ import javax.security.auth.login.LoginException;
 import Commands.BasicCommands;
 import Commands.FilterCommands;
 import Commands.InfoCommands;
+import Commands.MessageCommands;
 import Commands.RandomCommands;
 import Events.JoinLeaveEvents;
 import Events.MessageEvents;
@@ -47,6 +48,7 @@ public class Main {
 		jda.addEventListener(new RandomCommands());
 		jda.addEventListener(new FilterCommands());
 		jda.addEventListener(new InfoCommands());
+		jda.addEventListener(new MessageCommands());
 		jda.addEventListener(new JoinLeaveEvents());
 		jda.addEventListener(new MessageEvents());
 		jda.addEventListener(new Reactions());

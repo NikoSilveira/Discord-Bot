@@ -19,30 +19,7 @@ public class BasicCommands extends ListenerAdapter{
 		
 		//COMMANDS
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "ara")) {				//Ara Ara
-			
-			event.getChannel().sendTyping().queue();
-			event.getChannel().sendMessage("Ara Ara " + event.getAuthor().getName() + " ⭐").queue();
-			
-		}
-		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//Talk through bot
-			
-			args[0] = "";	//Ignore command in String
-			
-			if(args[1].equalsIgnoreCase("del")) {	
-				
-				//Delete original message
-				event.getMessage().delete().queue();
-				args[1] = "";
-				
-			}
-			
-			event.getChannel().sendTyping().queue();
-			event.getChannel().sendMessage("" + String.join(" ",args)).queue();
-		}
-		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "ping")) {		//Show latency
+		if(args[0].equalsIgnoreCase(Main.prefix + "ping")) {		//Show latency
 			
 			event.getChannel().sendTyping().queue();
 			long ping = event.getJDA().getPing();
@@ -80,14 +57,6 @@ public class BasicCommands extends ListenerAdapter{
 			}
 			
 		}
-		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "f")) {			//F in the chat
-			
-			event.getChannel().sendTyping().queue();
-			event.getChannel().sendMessage("F in the chat").queue();;
-			
-		}
-		
 		
 	}
 }
