@@ -7,9 +7,6 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class BasicCommands extends ListenerAdapter{
 	
-	
-	
-	
 	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
@@ -62,16 +59,13 @@ public class BasicCommands extends ListenerAdapter{
 			pingEmbed.setDescription(""+ping+" ms");
 			
 			if(ping <= 90) {
-				//Good lat - green
-				pingEmbed.setColor(0x05ab08);
+				pingEmbed.setColor(0x05ab08);	//Good lat - green
 			}
 			else if(ping > 90 && ping <= 160) {
-				//regular lat - yellow
-				pingEmbed.setColor(0xe8c205);
+				pingEmbed.setColor(0xe8c205);	//regular lat - yellow
 			}
 			else if(ping > 160) {
-				//bad lat - red
-				pingEmbed.setColor(0xfa0505);
+				pingEmbed.setColor(0xfa0505);	//bad lat - red
 			}
 			
 			event.getChannel().sendMessage(pingEmbed.build()).queue();
