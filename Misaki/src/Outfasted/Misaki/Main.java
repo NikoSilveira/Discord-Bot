@@ -38,7 +38,7 @@ public class Main {
 		}
 		
 		jda.getPresence().setStatus(OnlineStatus.IDLE);
-		jda.getPresence().setGame(Game.watching("Toaru Kagaku no Accelerator. || --commands"));
+		jda.getPresence().setGame(Game.watching("Toaru Kagaku no Accelerator.  || --commands"));
 		
 		jda.addEventListener(new BasicCommands());
 		jda.addEventListener(new RandomCommands());

@@ -27,11 +27,18 @@ public class BasicCommands extends ListenerAdapter{
 			EmbedBuilder commands = new EmbedBuilder();
 			commands.setTitle("What do you need? ⭐\n");
 			commands.setDescription
-			("**--ara:** misaki sends a small greet to you\n"
+				( "\n*Basic commands*\n"
+				+ "**--ara:** misaki sends a small greet to you\n"
 				+ "**--commands**: display misaki's list of commands\n"
+				+ "**--invite:** generate invite link to server\n"
 				+ "**--misaki:** display bot info\n"
+				+ "**--ping:** display user's latency\n"
+				+ "\n*Random output commands*\n"
 				+ "**--coin:** throw a coin for heads or tails\n"
-				+ "**--dice:** throw a dice and get a number from 1 to 6\n");
+				+ "**--dice:** throw a dice and get a number from 1 to 6\n"
+				+ "\n*Chat filter commands*\n"
+				+ "**--filter status:** check if the filter is enabled/disabled\n"
+				+ "**--filter toggle:** enable/disable chat filter\n");
 			
 			commands.setColor(0xe8c205);
 			
@@ -91,13 +98,6 @@ public class BasicCommands extends ListenerAdapter{
 			pingEmbed.clear();
 			
 		}
-		
-		/*else if(args[0].equalsIgnoreCase(Main.prefix + "add")) {
-			if(args[1] != null && args[2] != null) {
-				
-			}
-		}*/
-		
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//invite create
 			
