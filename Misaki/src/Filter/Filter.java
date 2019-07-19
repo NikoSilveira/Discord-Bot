@@ -1,6 +1,6 @@
 package Filter;
 
-import Commands.BasicCommands;
+import Commands.FilterCommands;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -11,13 +11,15 @@ public class Filter extends ListenerAdapter{
 		String[] message = event.getMessage().getContentRaw().split(" ");
 		
 		//No response to other bots
-		if (event.getAuthor().isBot())
+		if (event.getAuthor().isBot()) {
 			return;
+		}
+			
 		
 		//Add words here
 		String[] nopeWords = {"banana", "platano"};
 		
-		if(BasicCommands.filterEnabled == true) {	//verify if filtered is enabled
+		if(FilterCommands.filterEnabled == true) {	//verify if filtered is enabled
 			
 			for(int i=0; i < message.length; i++) {
 				

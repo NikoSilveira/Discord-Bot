@@ -7,6 +7,7 @@ import java.util.Scanner;
 import javax.security.auth.login.LoginException;
 
 import Commands.BasicCommands;
+import Commands.FilterCommands;
 import Commands.RandomCommands;
 import Events.Events;
 import Filter.Filter;
@@ -41,6 +42,7 @@ public class Main {
 		
 		jda.addEventListener(new BasicCommands());
 		jda.addEventListener(new RandomCommands());
+		jda.addEventListener(new FilterCommands());
 		jda.addEventListener(new Events());
 		jda.addEventListener(new Reactions());
 		jda.addEventListener(new Filter());

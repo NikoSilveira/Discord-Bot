@@ -14,8 +14,9 @@ public class RandomCommands extends ListenerAdapter{
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
 		//No response to other bots
-		if (event.getAuthor().isBot())
+		if (event.getAuthor().isBot()) {
 			return;
+		}
 		
 		//RANDOMIZER
 		Random rand = new Random();
