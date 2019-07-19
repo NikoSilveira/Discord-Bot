@@ -7,7 +7,7 @@ import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class Commands extends ListenerAdapter{
+public class BasicCommands extends ListenerAdapter{
 	
 	public static boolean filterEnabled = false;
 	
@@ -16,8 +16,7 @@ public class Commands extends ListenerAdapter{
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
-		//RANDOMIZER
-		Random rand = new Random();
+		
 		
 		
 		//COMMANDS
@@ -98,45 +97,6 @@ public class Commands extends ListenerAdapter{
 			}
 		}*/
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "coin")) {		//random of 2
-			
-			int number = rand.nextInt(2);
-			
-			EmbedBuilder coinEmbed = new EmbedBuilder();
-			
-			//coinEmbed.setImage(url)
-			
-			if(number == 0) {
-				coinEmbed.setTitle("Heads!");
-				//event.getChannel().sendMessage("Heads!").queue();
-			}else if(number == 1) {
-				coinEmbed.setTitle("Tails!");
-				//event.getChannel().sendMessage("Tails!").queue();
-			}
-			
-			event.getChannel().sendMessage(coinEmbed.build()).queue();
-			coinEmbed.clear();
-			
-		}
-		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "dice")) {		//random of 6
-			
-			int number = rand.nextInt(6);
-			
-			if(number == 0) {
-				event.getChannel().sendMessage("1").queue();
-			}else if(number == 1) {
-				event.getChannel().sendMessage("2").queue();
-			}else if(number == 2) {
-				event.getChannel().sendMessage("3").queue();
-			}else if(number == 3) {
-				event.getChannel().sendMessage("4").queue();
-			}else if(number == 4) {
-				event.getChannel().sendMessage("5").queue();
-			}else if(number == 5) {
-				event.getChannel().sendMessage("6").queue();
-			}
-		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//invite create
 			

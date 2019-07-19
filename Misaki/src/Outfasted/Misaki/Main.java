@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 import javax.security.auth.login.LoginException;
 
-import Commands.Commands;
+import Commands.BasicCommands;
+import Commands.RandomCommands;
 import Events.Events;
 import Filter.Filter;
 import Reactions.Reactions;
@@ -38,7 +39,8 @@ public class Main {
 		jda.getPresence().setStatus(OnlineStatus.IDLE);
 		jda.getPresence().setGame(Game.watching("Toaru Kagaku no Accelerator. || --commands"));
 		
-		jda.addEventListener(new Commands());
+		jda.addEventListener(new BasicCommands());
+		jda.addEventListener(new RandomCommands());
 		jda.addEventListener(new Events());
 		jda.addEventListener(new Reactions());
 		jda.addEventListener(new Filter());

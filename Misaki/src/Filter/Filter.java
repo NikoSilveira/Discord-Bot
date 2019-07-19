@@ -1,6 +1,6 @@
 package Filter;
 
-import Commands.Commands;
+import Commands.BasicCommands;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -13,7 +13,7 @@ public class Filter extends ListenerAdapter{
 		//Add words here
 		String[] nopeWords = {"banana", "platano"};
 		
-		if(Commands.filterEnabled == true) {	//verify if filtered is enabled
+		if(BasicCommands.filterEnabled == true) {	//verify if filtered is enabled
 			
 			for(int i=0; i < message.length; i++) {
 				
