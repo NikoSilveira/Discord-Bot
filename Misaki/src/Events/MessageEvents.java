@@ -14,6 +14,7 @@ public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 			return;
 		}
 			
+		/*
 		//Call everyone to voice chat
 		for(int i=0; i < args.length; i++) {
 			if(args[i].equalsIgnoreCase("vc") || args[i].equalsIgnoreCase("Vc") || args[i].equalsIgnoreCase("VC") || 
@@ -31,7 +32,7 @@ public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 				event.getChannel().sendMessage("Hello!").queue();
 				
 			}
-		}
+		}*/
 		
 		
 	}
