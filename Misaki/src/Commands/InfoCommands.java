@@ -30,6 +30,7 @@ public class InfoCommands extends ListenerAdapter{
 			
 			//Basic commands
 			commands.addField("Basic commands","**--ara:** misaki sends a small greet to you\n"
+					+ "**--f:** Misaki pays her respects in the chat\n"
 					+ "**--invite:** generate invite link to server\n"
 					+ "**--talk:** Send a message through misaki\n"
 					+ "**--talk del:** Send a message through misaki and delete command\n"
@@ -49,7 +50,6 @@ public class InfoCommands extends ListenerAdapter{
 			event.getChannel().sendMessage(commands.build()).queue();
 			
 			commands.clear();
-			
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {			//Bot bio embed
@@ -59,13 +59,12 @@ public class InfoCommands extends ListenerAdapter{
 			misaki.setDescription("Description");
 			misaki.addField("text","text",false);
 			misaki.setColor(0xe8c205);
-			misaki.setFooter("Created by OutFasted", event.getMember().getUser().getAvatarUrl());
+			misaki.setFooter("Created by OutFasted",null);
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage(misaki.build()).queue();
 			
 			misaki.clear();
-			
 		}
 		
 	}

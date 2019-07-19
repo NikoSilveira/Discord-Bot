@@ -38,6 +38,7 @@ public class BasicCommands extends ListenerAdapter{
 				
 			}
 			
+			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("" + String.join(" ",args)).queue();
 		}
 		
@@ -80,7 +81,12 @@ public class BasicCommands extends ListenerAdapter{
 			
 		}
 		
-
+		else if(args[0].equalsIgnoreCase(Main.prefix + "f")) {			//F in the chat
+			
+			event.getChannel().sendTyping().queue();
+			event.getChannel().sendMessage("F in the chat").queue();;
+			
+		}
 		
 		
 	}
