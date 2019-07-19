@@ -7,7 +7,7 @@ import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.core.events.guild.member.GuildMemberLeaveEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class Events extends ListenerAdapter{
+public class JoinLeaveEvents extends ListenerAdapter{
 	
 	//List of messages
 	String[] messagesJoin = {

@@ -9,7 +9,7 @@ import javax.security.auth.login.LoginException;
 import Commands.BasicCommands;
 import Commands.FilterCommands;
 import Commands.RandomCommands;
-import Events.Events;
+import Events.JoinLeaveEvents;
 import Filter.Filter;
 import Reactions.Reactions;
 import net.dv8tion.jda.core.AccountType;
@@ -43,7 +43,7 @@ public class Main {
 		jda.addEventListener(new BasicCommands());
 		jda.addEventListener(new RandomCommands());
 		jda.addEventListener(new FilterCommands());
-		jda.addEventListener(new Events());
+		jda.addEventListener(new JoinLeaveEvents());
 		jda.addEventListener(new Reactions());
 		jda.addEventListener(new Filter());
 	}
