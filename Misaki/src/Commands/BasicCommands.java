@@ -29,15 +29,16 @@ public class BasicCommands extends ListenerAdapter{
 		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//Talk through bot
 			
 			args[0] = "";	//Ignore command in String
-			event.getChannel().sendMessage("" + String.join("",args)).queue();
 			
 			if(args[1].equalsIgnoreCase("del")) {	
 				
 				//Delete original message
 				event.getMessage().delete().queue();
+				args[1] = "";
 				
 			}
 			
+			event.getChannel().sendMessage("" + String.join(" ",args)).queue();
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "ping")) {		//Show latency
