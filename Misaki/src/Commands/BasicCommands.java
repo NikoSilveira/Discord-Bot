@@ -28,24 +28,15 @@ public class BasicCommands extends ListenerAdapter{
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//Talk through bot
 			
+			args[0] = "";	//Ignore command in String
+			event.getChannel().sendMessage("" + String.join("",args)).queue();
+			
 			if(args[1].equalsIgnoreCase("del")) {	
 				
-				args[0] = "";	//Ignore command in String
-				
-				//Talk and delete og message
-				event.getChannel().sendMessage("" + String.join("",args)).queue();
+				//Delete original message
 				event.getMessage().delete().queue();
 				
 			}
-			else {		
-				
-				args[0] = "";	//Ignore command in String
-				
-				//Talk w/o deleting og message
-				event.getChannel().sendMessage("" + String.join("",args)).queue();
-				
-			}
-			
 			
 		}
 		
