@@ -14,7 +14,7 @@ public class BasicCommands extends ListenerAdapter{
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
-		//No response to other bots
+		//Avoid responding to other bots
 		if (event.getAuthor().isBot()) {
 			return;
 		}  
@@ -26,6 +26,28 @@ public class BasicCommands extends ListenerAdapter{
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("Ara Ara " + event.getAuthor().getName() + " ⭐").queue();
+			
+		}
+		
+		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//Talk through bot
+			
+			
+			if(args[1].equalsIgnoreCase("del")) {	
+				
+				//talk and delete og message
+				event.getChannel().sendMessage("" + event.getMessage().getContentDisplay()).queue();
+				event.getMessage().delete().queue();
+				//TODO delete command from text
+				
+			}
+			else {		
+				
+				//Talk w/o deleting og message
+				event.getChannel().sendMessage("" + event.getMessage().getContentDisplay()).queue();
+				//TODO delete command from text
+				
+			}
+			
 			
 		}
 		
