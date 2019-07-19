@@ -1,7 +1,5 @@
 package Commands;
 
-import java.util.Random;
-
 import Outfasted.Misaki.Main;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
@@ -79,11 +77,11 @@ public class BasicCommands extends ListenerAdapter{
 				//Good lat - green
 				pingEmbed.setColor(0x05ab08);
 			}
-			else if(ping > 100 && ping <= 150) {
+			else if(ping > 100 && ping <= 160) {
 				//regular lat - yellow
 				pingEmbed.setColor(0xe8c205);
 			}
-			else if(ping > 190) {
+			else if(ping > 160) {
 				//bad lat - red
 				pingEmbed.setColor(0xfa0505);
 			}
