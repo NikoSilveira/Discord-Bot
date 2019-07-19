@@ -23,22 +23,25 @@ public class InfoCommands extends ListenerAdapter{
 			
 			EmbedBuilder commands = new EmbedBuilder();
 			commands.setTitle("What do you need? ⭐\n");
-			commands.setDescription
-				( "\n*Info/help*\n"
-				+ "**--commands**: display misaki's list of commands\n"
-				+ "**--misaki:** display bot info\n"
-				+ "\n*Basic commands*\n"
-				+ "**--ara:** misaki sends a small greet to you\n"
-				+ "**--invite:** generate invite link to server\n"
-				+ "**--ping:** display user's latency\n"
-				+ "**--talk:** Send a message through misaki\n"
-				+ "**--talk del:** Send a message through misaki and delete command\n"
-				+ "\n*Random output commands*\n"
-				+ "**--coin:** throw a coin for heads or tails\n"
-				+ "**--dice:** throw a dice and get a number from 1 to 6\n"
-				+ "\n*Chat filter commands*\n"
-				+ "**--filter status:** check if the filter is enabled/disabled\n"
-				+ "**--filter toggle:** enable/disable chat filter\n");
+			
+			//Info/help
+			commands.addField("Info/help","**--commands**: display misaki's list of commands\n"
+					+ "**--misaki:** display bot info\n",true);
+			
+			//Basic commands
+			commands.addField("Basic commands","**--ara:** misaki sends a small greet to you\n"
+					+ "**--invite:** generate invite link to server\n"
+					+ "**--talk:** Send a message through misaki\n"
+					+ "**--talk del:** Send a message through misaki and delete command\n"
+					+ "**--ping:** display user's latency\n",true);
+			
+			//Rand output commands
+			commands.addField("Random output commands","**--coin:** throw a coin for heads or tails\n"
+					+ "**--dice:** throw a dice and get a number from 1 to 6\n",true);
+			
+			//Filter commands
+			commands.addField("Chat filter commands","**--filter status:** check if the filter is enabled/disabled\n"
+					+ "**--filter toggle:** enable/disable chat filter\\n",true);
 			
 			commands.setColor(0xe8c205);
 			
