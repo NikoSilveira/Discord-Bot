@@ -1,5 +1,6 @@
 package Commands;
 
+import Music.PlayerManager;
 import Outfasted.Misaki.Main;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -17,9 +18,13 @@ public class MusicCommands extends ListenerAdapter{
 		}
 		
 		if(args[0].equalsIgnoreCase(Main.prefix + "music")) {
-			//event.getGuild().getVoiceChannelsByName("General",true);
+			
 			AudioManager audioManager = event.getGuild().getAudioManager();
 			audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));
+			
+			PlayerManager manager = PlayerManager.getInstance();
+			manager.loadAndPlay(event.getChannel(), "https://www.youtube.com/watch?v=jQIzb72IATU");
+			manager.getGuildMusicManager(event.getGuild()).player.setVolume(10);
 		}
 	}
 }
