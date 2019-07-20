@@ -23,27 +23,49 @@ public class MusicCommands extends ListenerAdapter{
 		//Play music
 		if(args[0].equalsIgnoreCase(Main.prefix + "play")) {
 			
-			
-			
-			if(args.length == 1) {
+			//User only provides command with no args
+			if(args.length == 1) {	
 				
 				event.getChannel().sendMessage("Hey, you didn't provide me any URL!").queue();
+				
 			}
-			else if(args.length >= 2) {
+			
+			//User provides command with args
+			else if(args.length >= 2) {	
 				
 				String trackURL = args[1];
 				
-				AudioManager audioManager = event.getGuild().getAudioManager();
-				audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));	//TODO autoselect vc
+				if(isURL(args[1])) {		//valid argument: URL
+					
+					AudioManager audioManager = event.getGuild().getAudioManager();
+					audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));	//TODO autoselect vc
+					
+					PlayerManager manager = PlayerManager.getInstance();
+					manager.loadAndPlay(event.getChannel(), trackURL);
+					manager.getGuildMusicManager(event.getGuild()).player.setVolume(15);
+					
+					event.getMessage().delete().queue();
+				} 
 				
-				PlayerManager manager = PlayerManager.getInstance();
-				manager.loadAndPlay(event.getChannel(), trackURL);
-				manager.getGuildMusicManager(event.getGuild()).player.setVolume(13);
+				else if(!isURL(args[1])) {	//invalid argument
+					event.getChannel().sendMessage("That is not an URL, baka").queue();
+				}
 				
-				event.getMessage().delete().queue();
 				
 			}
 			
+		}
+
+	}
+	
+	//Validate if argument is URL
+	private boolean isURL(String input) {
+		try {
+			new URL (input);
+			return true;
+			
+		} catch (MalformedURLException ignored){
+			return false;
 		}
 	}
 	
