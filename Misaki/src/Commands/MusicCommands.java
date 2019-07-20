@@ -17,14 +17,19 @@ public class MusicCommands extends ListenerAdapter{
 			return;
 		}
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "music")) {
+		//Play music
+		if(args[0].equalsIgnoreCase(Main.prefix + "play")) {
+			
+			String trackURL = args[1];
 			
 			AudioManager audioManager = event.getGuild().getAudioManager();
-			audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));
+			audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));	//TODO autoselect vc
 			
 			PlayerManager manager = PlayerManager.getInstance();
-			manager.loadAndPlay(event.getChannel(), "https://www.youtube.com/watch?v=jQIzb72IATU");
-			manager.getGuildMusicManager(event.getGuild()).player.setVolume(10);
+			manager.loadAndPlay(event.getChannel(), trackURL);
+			manager.getGuildMusicManager(event.getGuild()).player.setVolume(13);
+			
+			event.getMessage().delete().queue();
 		}
 	}
 }
