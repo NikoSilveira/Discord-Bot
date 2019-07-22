@@ -78,6 +78,7 @@ public class MusicCommands extends ListenerAdapter{
 			EmbedBuilder stopEmbed = new EmbedBuilder();
 			stopEmbed.setTitle("\u23F9 Music stopped. I have cleared the queue");
 			stopEmbed.setColor(0xe8c205);
+			stopEmbed.setFooter("Stopped by: " + event.getMember().getUser().getName(), event.getMember().getUser().getAvatarUrl());
 			event.getChannel().sendMessage(stopEmbed.build()).queue();
 			
 			stopEmbed.clear();
@@ -96,11 +97,13 @@ public class MusicCommands extends ListenerAdapter{
 				return;
 			}
 			
+			event.getMessage().delete().queue();
 			scheduler.nextTrack();
 			
 			EmbedBuilder skipEmbed = new EmbedBuilder();
 			skipEmbed.setTitle("\u23E9 Skipping the current track");
 			skipEmbed.setColor(0xe8c205);
+			skipEmbed.setFooter("Skipped by: " + event.getMember().getUser().getName(), event.getMember().getUser().getAvatarUrl());
 			event.getChannel().sendMessage(skipEmbed.build()).queue();
 			
 			skipEmbed.clear();
@@ -127,6 +130,7 @@ public class MusicCommands extends ListenerAdapter{
 			nowEmbed.addField("","" + info.title,true);
 			nowEmbed.setColor(0xe8c205);
 			event.getChannel().sendMessage(nowEmbed.build()).queue();
+			
 			nowEmbed.clear();
 		}
 	}
