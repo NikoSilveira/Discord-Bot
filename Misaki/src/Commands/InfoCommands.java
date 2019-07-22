@@ -43,7 +43,7 @@ public class InfoCommands extends ListenerAdapter{
 			
 			+ "\nMusic commands\n"
 			+ "**--play [URL]:**Plays a song from a given URL\n"
-			+ "**--stop:** Stop music and clear all the queue\n"
+			+ "**--stop:** Stop music, clear queue and force bot out of VC\n"
 			+ "**--skip:** Skip the song that is currently playing\n"
 			+ "**--now:** Show current track info\n"
 			

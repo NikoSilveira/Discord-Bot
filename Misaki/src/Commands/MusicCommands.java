@@ -45,11 +45,20 @@ public class MusicCommands extends ListenerAdapter{
 				
 				if(isURL(args[1])) {		//valid argument: URL
 					
-					audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));	//TODO autoselect vc
+					if(audioManager.getConnectedChannel() == null) {	//only open if not connected to vc
+						
+						if(event.getMember().getVoiceState().getChannel() != null) {
+							audioManager.openAudioConnection(event.getMember().getVoiceState().getChannel());
+						}
+						else if(event.getMember().getVoiceState().getChannel() == null) {
+							event.getChannel().sendMessage("You are not in VC. Join the channel first and then ask me to join").queue();
+						}
+						
+					}
 					
 					PlayerManager playerManager = PlayerManager.getInstance();
 					playerManager.loadAndPlay(event.getChannel(), trackURL);
-					playerManager.getGuildMusicManager(event.getGuild()).player.setVolume(70);
+					playerManager.getGuildMusicManager(event.getGuild()).player.setVolume(65);
 					
 					event.getMessage().delete().queue();
 				} 
