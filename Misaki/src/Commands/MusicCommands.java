@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
+import com.sedmelluq.discord.lavaplayer.track.AudioTrackInfo;
 
 import Music.GuildMusicManager;
 import Music.PlayerManager;
@@ -45,9 +46,9 @@ public class MusicCommands extends ListenerAdapter{
 					
 					audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));	//TODO autoselect vc
 					
-					PlayerManager manager = PlayerManager.getInstance();
-					manager.loadAndPlay(event.getChannel(), trackURL);
-					manager.getGuildMusicManager(event.getGuild()).player.setVolume(75);
+					PlayerManager playerManager = PlayerManager.getInstance();
+					playerManager.loadAndPlay(event.getChannel(), trackURL);
+					playerManager.getGuildMusicManager(event.getGuild()).player.setVolume(75);
 					
 					event.getMessage().delete().queue();
 				} 
@@ -82,13 +83,31 @@ public class MusicCommands extends ListenerAdapter{
 			TrackScheduler scheduler = musicManager.scheduler;
 			AudioPlayer player = musicManager.player;
 			
-			if(player.getPlayingTrack() == null) {
+			if(player.getPlayingTrack() == null) {	//User tries to skip in empty queue
 				event.getChannel().sendMessage("No songs playing right now").queue();
 				return;
 			}
 			
 			scheduler.nextTrack();
 			event.getChannel().sendMessage("Skipping the current track").queue();
+		}
+		
+		//Now playing
+		else if(args[0].equalsIgnoreCase(Main.prefix + "now")) {
+			
+			PlayerManager playerManager = PlayerManager.getInstance();
+			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
+			AudioPlayer player = musicManager.player;
+			
+			if(player.getPlayingTrack() == null) {	//Empty queue
+				event.getChannel().sendMessage("No songs playing right now").queue();
+				return;
+			}
+			
+			AudioTrackInfo info = player.getPlayingTrack().getInfo();
+			
+			event.getChannel().sendMessage("\u23F8 **Now playing:** " + info.title).queue();
+			
 		}
 	}
 	
