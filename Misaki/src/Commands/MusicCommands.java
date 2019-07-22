@@ -68,13 +68,19 @@ public class MusicCommands extends ListenerAdapter{
 			PlayerManager playerManager = PlayerManager.getInstance();
 			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
 			
+			if(musicManager.scheduler.getQueue().isEmpty() && musicManager.player.getPlayingTrack() == null) {	//user tries to stop in empty queue
+				event.getChannel().sendMessage("No music enqueued or playing").queue();
+				return;
+			}
+			
 			musicManager.scheduler.getQueue().clear();
 			musicManager.player.stopTrack();
 			musicManager.player.setPaused(false);
 			audioManager.closeAudioConnection();
 			
-			event.getMessage().delete().queue();
+			event.getMessage().delete().queue();	//delete command
 			
+			//Embed
 			EmbedBuilder stopEmbed = new EmbedBuilder();
 			stopEmbed.setTitle("\u23F9 Music stopped. I have cleared the queue");
 			stopEmbed.setColor(0xe8c205);
@@ -97,9 +103,10 @@ public class MusicCommands extends ListenerAdapter{
 				return;
 			}
 			
-			event.getMessage().delete().queue();
+			event.getMessage().delete().queue();	//delete command
 			scheduler.nextTrack();
 			
+			//Embed
 			EmbedBuilder skipEmbed = new EmbedBuilder();
 			skipEmbed.setTitle("\u23E9 Skipping the current track");
 			skipEmbed.setColor(0xe8c205);
@@ -123,8 +130,10 @@ public class MusicCommands extends ListenerAdapter{
 			
 			AudioTrackInfo info = player.getPlayingTrack().getInfo();
 			
-			event.getMessage().delete().queue();
 			
+			event.getMessage().delete().queue();	//delete command
+			
+			//Embed
 			EmbedBuilder nowEmbed = new EmbedBuilder();
 			nowEmbed.setTitle("\u25B6 Now playing:");
 			nowEmbed.addField("","" + info.title,true);
@@ -132,6 +141,19 @@ public class MusicCommands extends ListenerAdapter{
 			event.getChannel().sendMessage(nowEmbed.build()).queue();
 			
 			nowEmbed.clear();
+		}
+		
+		//Lofi stream
+		else if(args[0].equalsIgnoreCase(Main.prefix + "lofi")) {
+			
+			//Ask user if wishes to stream and close existing queue
+			
+			PlayerManager playerManager = PlayerManager.getInstance();
+			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
+			
+			musicManager.scheduler.getQueue().clear();
+			musicManager.player.stopTrack();
+			musicManager.player.setPaused(false);
 		}
 	}
 	
