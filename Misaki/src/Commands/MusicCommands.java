@@ -48,10 +48,10 @@ public class MusicCommands extends ListenerAdapter{
 					if(audioManager.getConnectedChannel() == null) {	//only open if not connected to vc
 						
 						if(event.getMember().getVoiceState().getChannel() != null) {
-							audioManager.openAudioConnection(event.getMember().getVoiceState().getChannel());
+							audioManager.openAudioConnection(event.getMember().getVoiceState().getChannel());	//join the vc where the user is
 						}
 						else if(event.getMember().getVoiceState().getChannel() == null) {
-							event.getChannel().sendMessage("You are not in VC. Join the channel first and then ask me to join").queue();
+							event.getChannel().sendMessage("You are not in VC. Join a channel first and then ask me to join").queue();
 						}
 						
 					}
@@ -72,7 +72,7 @@ public class MusicCommands extends ListenerAdapter{
 		}
 		
 		//Stop music
-		else if(args[0].equalsIgnoreCase(Main.prefix + "stop")) {
+		else if(args[0].equalsIgnoreCase(Main.prefix + "stop") || args[0].equalsIgnoreCase(Main.prefix + "shoo")) {
 			
 			PlayerManager playerManager = PlayerManager.getInstance();
 			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
@@ -156,6 +156,8 @@ public class MusicCommands extends ListenerAdapter{
 			
 			nowEmbed.clear();
 		}
+		
+		//Move
 		
 	}
 	
