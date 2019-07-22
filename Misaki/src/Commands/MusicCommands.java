@@ -10,6 +10,7 @@ import Music.GuildMusicManager;
 import Music.PlayerManager;
 import Music.TrackScheduler;
 import Outfasted.Misaki.Main;
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.managers.AudioManager;
@@ -48,7 +49,7 @@ public class MusicCommands extends ListenerAdapter{
 					
 					PlayerManager playerManager = PlayerManager.getInstance();
 					playerManager.loadAndPlay(event.getChannel(), trackURL);
-					playerManager.getGuildMusicManager(event.getGuild()).player.setVolume(75);
+					playerManager.getGuildMusicManager(event.getGuild()).player.setVolume(70);
 					
 					event.getMessage().delete().queue();
 				} 
@@ -73,7 +74,14 @@ public class MusicCommands extends ListenerAdapter{
 			audioManager.closeAudioConnection();
 			
 			event.getMessage().delete().queue();
-			event.getChannel().sendMessage("Stopping and clearing queue...").queue();
+			//event.getChannel().sendMessage("Stopping and clearing queue...").queue();
+			
+			EmbedBuilder stopEmbed = new EmbedBuilder();
+			stopEmbed.setTitle("\u23F9 Music stopped. I have cleared the queue");
+			stopEmbed.setColor(0xe8c205);
+			event.getChannel().sendMessage(stopEmbed.build()).queue();
+			
+			stopEmbed.clear();
 		}
 		
 		//Skip song
