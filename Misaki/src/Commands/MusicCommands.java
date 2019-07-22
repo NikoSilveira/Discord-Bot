@@ -74,7 +74,6 @@ public class MusicCommands extends ListenerAdapter{
 			audioManager.closeAudioConnection();
 			
 			event.getMessage().delete().queue();
-			//event.getChannel().sendMessage("Stopping and clearing queue...").queue();
 			
 			EmbedBuilder stopEmbed = new EmbedBuilder();
 			stopEmbed.setTitle("\u23F9 Music stopped. I have cleared the queue");
@@ -98,7 +97,13 @@ public class MusicCommands extends ListenerAdapter{
 			}
 			
 			scheduler.nextTrack();
-			event.getChannel().sendMessage("Skipping the current track").queue();
+			
+			EmbedBuilder skipEmbed = new EmbedBuilder();
+			skipEmbed.setTitle("\u23E9 Skipping the current track");
+			skipEmbed.setColor(0xe8c205);
+			event.getChannel().sendMessage(skipEmbed.build()).queue();
+			
+			skipEmbed.clear();
 		}
 		
 		//Now playing
