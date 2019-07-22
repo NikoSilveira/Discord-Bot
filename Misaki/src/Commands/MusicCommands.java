@@ -3,6 +3,7 @@ package Commands;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import Music.GuildMusicManager;
 import Music.PlayerManager;
 import Outfasted.Misaki.Main;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
@@ -42,7 +43,7 @@ public class MusicCommands extends ListenerAdapter{
 					
 					PlayerManager manager = PlayerManager.getInstance();
 					manager.loadAndPlay(event.getChannel(), trackURL);
-					manager.getGuildMusicManager(event.getGuild()).player.setVolume(15);
+					manager.getGuildMusicManager(event.getGuild()).player.setVolume(18);
 					
 					event.getMessage().delete().queue();
 				} 
@@ -51,12 +52,26 @@ public class MusicCommands extends ListenerAdapter{
 					event.getChannel().sendMessage("That is not an URL, baka").queue();
 				}
 				
-				
 			}
 			
 		}
+		
+		//Stop music
+		if(args[0].equalsIgnoreCase(Main.prefix + "stop")) {
+			
+			PlayerManager playerManager = PlayerManager.getInstance();
+			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
+			
+			musicManager.scheduler.getQueue().clear();
+			musicManager.player.stopTrack();
+			musicManager.player.setPaused(false);
+			
+			event.getChannel().sendMessage("Stopping and clearing queue...").queue();
+		}
 
 	}
+	
+
 	
 	//Validate if argument is URL
 	private boolean isURL(String input) {
