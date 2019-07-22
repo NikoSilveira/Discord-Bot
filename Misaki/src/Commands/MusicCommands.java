@@ -16,6 +16,8 @@ public class MusicCommands extends ListenerAdapter{
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
+		AudioManager audioManager = event.getGuild().getAudioManager();
+		
 		//No response to other bots
 		if (event.getAuthor().isBot()) {
 			return;
@@ -38,12 +40,11 @@ public class MusicCommands extends ListenerAdapter{
 				
 				if(isURL(args[1])) {		//valid argument: URL
 					
-					AudioManager audioManager = event.getGuild().getAudioManager();
 					audioManager.openAudioConnection(event.getGuild().getVoiceChannelById("600895445648277518"));	//TODO autoselect vc
 					
 					PlayerManager manager = PlayerManager.getInstance();
 					manager.loadAndPlay(event.getChannel(), trackURL);
-					manager.getGuildMusicManager(event.getGuild()).player.setVolume(18);
+					manager.getGuildMusicManager(event.getGuild()).player.setVolume(40);
 					
 					event.getMessage().delete().queue();
 				} 
@@ -65,6 +66,7 @@ public class MusicCommands extends ListenerAdapter{
 			musicManager.scheduler.getQueue().clear();
 			musicManager.player.stopTrack();
 			musicManager.player.setPaused(false);
+			audioManager.closeAudioConnection();
 			
 			event.getChannel().sendMessage("Stopping and clearing queue...").queue();
 		}
