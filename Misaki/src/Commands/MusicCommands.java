@@ -3,8 +3,11 @@ package Commands;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
+
 import Music.GuildMusicManager;
 import Music.PlayerManager;
+import Music.TrackScheduler;
 import Outfasted.Misaki.Main;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -44,7 +47,7 @@ public class MusicCommands extends ListenerAdapter{
 					
 					PlayerManager manager = PlayerManager.getInstance();
 					manager.loadAndPlay(event.getChannel(), trackURL);
-					manager.getGuildMusicManager(event.getGuild()).player.setVolume(40);
+					manager.getGuildMusicManager(event.getGuild()).player.setVolume(75);
 					
 					event.getMessage().delete().queue();
 				} 
@@ -58,7 +61,7 @@ public class MusicCommands extends ListenerAdapter{
 		}
 		
 		//Stop music
-		if(args[0].equalsIgnoreCase(Main.prefix + "stop")) {
+		else if(args[0].equalsIgnoreCase(Main.prefix + "stop")) {
 			
 			PlayerManager playerManager = PlayerManager.getInstance();
 			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
@@ -70,11 +73,26 @@ public class MusicCommands extends ListenerAdapter{
 			
 			event.getChannel().sendMessage("Stopping and clearing queue...").queue();
 		}
-
+		
+		//Skip song
+		else if(args[0].equalsIgnoreCase(Main.prefix + "skip")) {
+			
+			PlayerManager playerManager = PlayerManager.getInstance();
+			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
+			TrackScheduler scheduler = musicManager.scheduler;
+			AudioPlayer player = musicManager.player;
+			
+			if(player.getPlayingTrack() == null) {
+				event.getChannel().sendMessage("No songs playing right now").queue();
+				return;
+			}
+			
+			scheduler.nextTrack();
+			event.getChannel().sendMessage("Skipping the current track").queue();
+		}
 	}
 	
 
-	
 	//Validate if argument is URL
 	private boolean isURL(String input) {
 		try {
