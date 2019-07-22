@@ -121,8 +121,13 @@ public class MusicCommands extends ListenerAdapter{
 			AudioTrackInfo info = player.getPlayingTrack().getInfo();
 			
 			event.getMessage().delete().queue();
-			event.getChannel().sendMessage("\u25B6 **Now playing:** " + info.title).queue();
 			
+			EmbedBuilder nowEmbed = new EmbedBuilder();
+			nowEmbed.setTitle("\u25B6 Now playing:");
+			nowEmbed.addField("","" + info.title,true);
+			nowEmbed.setColor(0xe8c205);
+			event.getChannel().sendMessage(nowEmbed.build()).queue();
+			nowEmbed.clear();
 		}
 	}
 	
