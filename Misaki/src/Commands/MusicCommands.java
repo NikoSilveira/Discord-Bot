@@ -143,18 +143,6 @@ public class MusicCommands extends ListenerAdapter{
 			nowEmbed.clear();
 		}
 		
-		//Lofi stream
-		else if(args[0].equalsIgnoreCase(Main.prefix + "lofi")) {
-			
-			//Ask user if wishes to stream and close existing queue
-			
-			PlayerManager playerManager = PlayerManager.getInstance();
-			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
-			
-			musicManager.scheduler.getQueue().clear();
-			musicManager.player.stopTrack();
-			musicManager.player.setPaused(false);
-		}
 	}
 	
 
