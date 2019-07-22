@@ -72,6 +72,7 @@ public class MusicCommands extends ListenerAdapter{
 			musicManager.player.setPaused(false);
 			audioManager.closeAudioConnection();
 			
+			event.getMessage().delete().queue();
 			event.getChannel().sendMessage("Stopping and clearing queue...").queue();
 		}
 		
@@ -106,7 +107,8 @@ public class MusicCommands extends ListenerAdapter{
 			
 			AudioTrackInfo info = player.getPlayingTrack().getInfo();
 			
-			event.getChannel().sendMessage("\u23F8 **Now playing:** " + info.title).queue();
+			event.getMessage().delete().queue();
+			event.getChannel().sendMessage("\u25B6 **Now playing:** " + info.title).queue();
 			
 		}
 	}
