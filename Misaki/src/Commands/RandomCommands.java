@@ -26,6 +26,7 @@ public class RandomCommands extends ListenerAdapter{
 			int number = rand.nextInt(2);
 			
 			EmbedBuilder coinEmbed = new EmbedBuilder();
+			event.getChannel().sendTyping().queue();
 			
 			//coinEmbed.setImage(url)
 			
@@ -45,6 +46,8 @@ public class RandomCommands extends ListenerAdapter{
 		else if(args[0].equalsIgnoreCase(Main.prefix + "dice")) {		//random of 6
 			
 			int number = rand.nextInt(6);
+			
+			event.getChannel().sendTyping().queue();
 			
 			if(number == 0) {
 				event.getChannel().sendMessage("1").queue();

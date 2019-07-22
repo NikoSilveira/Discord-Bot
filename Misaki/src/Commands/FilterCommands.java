@@ -30,6 +30,8 @@ public class FilterCommands extends ListenerAdapter{
 				
 				if(args[1].equalsIgnoreCase("status")) {		//Check filter status
 					
+					event.getChannel().sendTyping().queue();
+					
 					if(filterEnabled == true) {
 						event.getChannel().sendMessage("The chat filter is enabled.").queue();
 					}
@@ -39,6 +41,8 @@ public class FilterCommands extends ListenerAdapter{
 					
 				}
 				else if(args[1].equalsIgnoreCase("toggle")) {	//Enable/disable filter
+					
+					event.getChannel().sendTyping().queue();
 					
 					if(filterEnabled == false) {
 						filterEnabled = true;

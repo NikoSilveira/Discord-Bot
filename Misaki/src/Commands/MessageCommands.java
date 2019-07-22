@@ -52,12 +52,14 @@ public class MessageCommands extends ListenerAdapter{
 			
 			args[0] = "";
 			
+			event.getChannel().sendTyping().queue();
 			event.getMessage().delete().queue();
 			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " has an announcement: " + String.join(" ",args)).queue();
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "call")) {		//Call everyone
 			
+			event.getChannel().sendTyping().queue();
 			event.getMessage().delete().queue();;
 			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " is summoning you!").queue();
 			
