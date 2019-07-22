@@ -41,6 +41,12 @@ public class InfoCommands extends ListenerAdapter{
 			+ "**--talk:** send a message through misaki\n"
 			+ "**--talk del:** send a message through misaki and delete command\n"
 			
+			+ "\nMusic commands\n"
+			+ "**--play [URL]:**Plays a song from a given URL\n"
+			+ "**--stop:** Stop music and clear all the queue\n"
+			+ "**--skip:** Skip the song that is currently playing\n"
+			+ "**--now:** Show current track info\n"
+			
 			+ "\n*Random output commands*\n"
 			+ "**--coin:** throw a coin for heads or tails\n"
 			+ "**--dice:** throw a dice and get a number from 1 to 6\n"
