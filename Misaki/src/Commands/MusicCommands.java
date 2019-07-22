@@ -114,6 +114,11 @@ public class MusicCommands extends ListenerAdapter{
 			event.getChannel().sendMessage(skipEmbed.build()).queue();
 			
 			skipEmbed.clear();
+			
+			if(player.getPlayingTrack() == null) {	//Skipped the last song
+				audioManager.closeAudioConnection();
+				event.getChannel().sendMessage("No more songs in queue, bye ⭐").queue();
+			}
 		}
 		
 		//Now playing
