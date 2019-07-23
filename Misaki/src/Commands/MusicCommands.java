@@ -33,9 +33,7 @@ public class MusicCommands extends ListenerAdapter{
 			
 			//User only provides command with no args
 			if(args.length == 1) {	
-				
 				event.getChannel().sendMessage("Hey, you didn't provide me any URL!").queue();
-				
 			}
 			
 			//User provides command with args
