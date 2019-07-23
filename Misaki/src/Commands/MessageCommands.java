@@ -3,6 +3,7 @@ package Commands;
 import java.util.List;
 
 import Outfasted.Misaki.Main;
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -84,6 +85,14 @@ public class MessageCommands extends ListenerAdapter{
 					try {
 						List<Message> messages = event.getChannel().getHistory().retrievePast(Integer.parseInt(args[1])).complete();
 						event.getChannel().deleteMessages(messages).queue();
+						
+						//Embed with deletion info
+						EmbedBuilder delEmbed = new EmbedBuilder();
+						delEmbed.setTitle(args[1] + " messages deleted");
+						delEmbed.setColor(0xe8c205);
+						delEmbed.setFooter("" + event.getMember().getUser().getName(), event.getMember().getUser().getAvatarUrl());
+						event.getChannel().sendMessage(delEmbed.build()).queue();
+						delEmbed.clear();
 						
 					} catch(IllegalArgumentException e) {
 						//Limit user to messages no older than 2 weeks
