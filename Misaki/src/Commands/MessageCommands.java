@@ -1,6 +1,9 @@
 package Commands;
 
+import java.util.List;
+
 import Outfasted.Misaki.Main;
+import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -63,6 +66,32 @@ public class MessageCommands extends ListenerAdapter{
 			event.getMessage().delete().queue();;
 			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " is summoning you!").queue();
 			
+		}
+		
+		else if(args[0].equalsIgnoreCase(Main.prefix + "del")) {		//delete last n messages
+			
+			if(args.length == 1) {
+				event.getChannel().sendMessage("You need to tell me how many messages you want to delete (1-100)!").queue();;
+			}
+			else {
+				
+				if(Integer.parseInt(args[1]) > 100) {
+					//Limit user to 100 deleted messages
+					event.getChannel().sendMessage("Too many messages! 100 is the limit, baka").queue();
+				}
+				else {
+					
+					try {
+						List<Message> messages = event.getChannel().getHistory().retrievePast(Integer.parseInt(args[1])).complete();
+						event.getChannel().deleteMessages(messages).queue();
+						
+					} catch(IllegalArgumentException e) {
+						//Limit user to messages no older than 2 weeks
+						event.getChannel().sendMessage("You are trying to delete messages that are over 2 weeks old. Bots can't do that!").queue();
+					}
+
+				}
+			}
 		}
 	}
 }
