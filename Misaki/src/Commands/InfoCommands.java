@@ -46,6 +46,7 @@ public class InfoCommands extends ListenerAdapter{
 			+ "**--stop/shoo:** Stop music, clear queue and force bot out of VC\n"
 			+ "**--skip:** Skip the song that is currently playing\n"
 			+ "**--now:** Show current track info\n"
+			+ "**--come:** Change Misaki to the VC you are currently in\n"
 			
 			+ "\n*Random output commands*\n"
 			+ "**--coin:** throw a coin for heads or tails\n"
