@@ -170,6 +170,24 @@ public class MusicCommands extends ListenerAdapter{
 			}
 		}
 		
+		//Pause
+		else if(args[0].equalsIgnoreCase(Main.prefix + "pause")) {
+			
+			PlayerManager playerManager = PlayerManager.getInstance();
+			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
+			AudioPlayer player = musicManager.player;
+			
+			if(player.getPlayingTrack() != null) {
+				
+				if(player.isPaused()) {		//resume
+					player.setPaused(false);
+				}
+				else if(!player.isPaused()) {	//pause
+					player.setPaused(true);
+				}
+			}
+		}
+		
 	}
 	
 
