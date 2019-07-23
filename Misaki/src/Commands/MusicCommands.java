@@ -77,6 +77,8 @@ public class MusicCommands extends ListenerAdapter{
 			PlayerManager playerManager = PlayerManager.getInstance();
 			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
 			
+			audioManager.closeAudioConnection();
+			
 			if(musicManager.scheduler.getQueue().isEmpty() && musicManager.player.getPlayingTrack() == null) {	//user tries to stop in empty queue
 				event.getChannel().sendMessage("No music enqueued or playing").queue();
 				return;
@@ -85,7 +87,6 @@ public class MusicCommands extends ListenerAdapter{
 			musicManager.scheduler.getQueue().clear();
 			musicManager.player.stopTrack();
 			musicManager.player.setPaused(false);
-			audioManager.closeAudioConnection();
 			
 			event.getMessage().delete().queue();	//delete command
 			
