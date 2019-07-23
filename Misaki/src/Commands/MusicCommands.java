@@ -177,14 +177,25 @@ public class MusicCommands extends ListenerAdapter{
 			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
 			AudioPlayer player = musicManager.player;
 			
+			event.getMessage().delete().queue();
+			
 			if(player.getPlayingTrack() != null) {
+				
+				EmbedBuilder pauseEmbed = new EmbedBuilder();
+				pauseEmbed.setColor(0xe8c205);
 				
 				if(player.isPaused()) {		//resume
 					player.setPaused(false);
+					pauseEmbed.setTitle("Resumed");
 				}
 				else if(!player.isPaused()) {	//pause
 					player.setPaused(true);
+					pauseEmbed.setTitle("Paused");
 				}
+				
+				pauseEmbed.setFooter("" + event.getMember().getUser().getName(), event.getMember().getUser().getAvatarUrl());
+				event.getChannel().sendMessage(pauseEmbed.build()).queue();
+				pauseEmbed.clear();
 			}
 		}
 		
