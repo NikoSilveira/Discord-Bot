@@ -157,7 +157,18 @@ public class MusicCommands extends ListenerAdapter{
 			nowEmbed.clear();
 		}
 		
-		//Move
+		//Come
+		else if(args[0].equalsIgnoreCase(Main.prefix + "come")) {
+			PlayerManager playerManager = PlayerManager.getInstance();
+			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
+			
+			if(musicManager.player.getPlayingTrack() != null) {
+				audioManager.openAudioConnection(event.getMember().getVoiceState().getChannel());	//Make the bot change VC to where the user is
+			}
+			else if(musicManager.player.getPlayingTrack() == null) {
+				event.getChannel().sendMessage("I can only come to a channel if I'm already streaming in another channel!").queue();
+			}
+		}
 		
 	}
 	
