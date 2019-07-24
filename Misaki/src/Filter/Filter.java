@@ -17,7 +17,7 @@ public class Filter extends ListenerAdapter{
 			
 		
 		//Add words here
-		String[] nopeWords = {"banana", "platano"};
+		String[] nopeWords = {""};
 		
 		if(FilterCommands.filterEnabled == true) {	//verify if filtered is enabled
 			
@@ -29,7 +29,6 @@ public class Filter extends ListenerAdapter{
 						event.getMessage().delete().queue();			//delete
 						event.getChannel().sendMessage("Baka").queue();	//send warning
 						
-						//TODO catch insufficient permission
 					}
 					
 				}

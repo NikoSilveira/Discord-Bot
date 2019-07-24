@@ -78,7 +78,7 @@ public class InfoCommands extends ListenerAdapter{
 			misaki.addField("What commands do you have?","Type *--commands* and I will display the list of available commands for you.",true);
 			misaki.addField("Can we hold hands?","**No.**",true);
 			misaki.setColor(0xe8c205);
-			misaki.setFooter("Created by OutFasted",null);
+			misaki.setFooter("Created by OutFasted | https://github.com/NikoSilveira/Discord-Bot-Misaki",null);
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage(misaki.build()).queue();

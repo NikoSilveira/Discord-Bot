@@ -26,7 +26,6 @@ public class MessageCommands extends ListenerAdapter{
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("Ara Ara " + event.getAuthor().getName() + " ⭐").queue();
-			
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//<Talk through bot>
@@ -78,7 +77,6 @@ public class MessageCommands extends ListenerAdapter{
 			event.getChannel().sendTyping().queue();
 			event.getMessage().delete().queue();;
 			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " is summoning you!").queue();
-			
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "del")) {		//<delete last n messages>
