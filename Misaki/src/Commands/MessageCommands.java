@@ -46,9 +46,22 @@ public class MessageCommands extends ListenerAdapter{
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "f")) {			//<F in the chat>
 			
-			event.getChannel().sendTyping().queue();
-			event.getChannel().sendMessage("F in the chat").queue();;
-			
+			if(args.length == 1) {
+				//simple f
+				event.getMessage().delete().queue();
+				event.getChannel().sendTyping().queue();
+				event.getChannel().sendMessage("F in the chat").queue();
+			}
+			else {
+				//targeted f
+				args[0] = "";
+				
+				EmbedBuilder fEmbed = new EmbedBuilder();
+				fEmbed.setTitle(event.getMember().getUser().getName() + " has paid his respects for " + String.join(" ",args));
+				fEmbed.setColor(0xe8c205);
+				event.getChannel().sendMessage(fEmbed.build()).queue();;
+				fEmbed.clear();
+			}
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "announce")) {	//<Announcement>
