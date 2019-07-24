@@ -39,6 +39,7 @@ public class InfoCommands extends ListenerAdapter{
 			+ "**--call:** Misaki calls everyone out for you\n"
 			+ "**--del n:** Misaki deletes the last n messages in the chat \n"
 			+ "**--f:** Misaki pays her respects in the chat\n"
+			+ "**--f [text]:** user pays respect to [text]\n"
 			+ "**--talk [text]:** send a message through misaki\n"
 			+ "**--talk del [text]:** send a message through misaki and delete command\n"
 			
