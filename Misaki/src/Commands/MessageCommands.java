@@ -38,7 +38,6 @@ public class MessageCommands extends ListenerAdapter{
 				//Delete original message
 				event.getMessage().delete().queue();
 				args[1] = "";
-				
 			}
 			
 			event.getChannel().sendTyping().queue();
