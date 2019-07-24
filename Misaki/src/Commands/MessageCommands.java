@@ -22,14 +22,14 @@ public class MessageCommands extends ListenerAdapter{
 		
 		//COMMANDS
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "ara")) {				//Ara Ara
+		if(args[0].equalsIgnoreCase(Main.prefix + "ara")) {				//<Ara Ara>
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("Ara Ara " + event.getAuthor().getName() + " ⭐").queue();
 			
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//Talk through bot
+		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//<Talk through bot>
 			
 			args[0] = "";	//Ignore command in String
 			
@@ -45,14 +45,14 @@ public class MessageCommands extends ListenerAdapter{
 			event.getChannel().sendMessage("" + String.join(" ",args)).queue();
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "f")) {			//F in the chat
+		else if(args[0].equalsIgnoreCase(Main.prefix + "f")) {			//<F in the chat>
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("F in the chat").queue();;
 			
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "announce")) {	//Announcement
+		else if(args[0].equalsIgnoreCase(Main.prefix + "announce")) {	//<Announcement>
 			
 			args[0] = "";
 			
@@ -61,7 +61,7 @@ public class MessageCommands extends ListenerAdapter{
 			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " has an announcement: " + String.join(" ",args)).queue();
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "call")) {		//Call everyone
+		else if(args[0].equalsIgnoreCase(Main.prefix + "call")) {		//<Call everyone>
 			
 			event.getChannel().sendTyping().queue();
 			event.getMessage().delete().queue();;
@@ -69,7 +69,7 @@ public class MessageCommands extends ListenerAdapter{
 			
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "del")) {		//delete last n messages
+		else if(args[0].equalsIgnoreCase(Main.prefix + "del")) {		//<delete last n messages>
 			
 			if(args.length == 1) {
 				event.getChannel().sendMessage("You need to tell me how many messages you want to delete (1-100)!").queue();;

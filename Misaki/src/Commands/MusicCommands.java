@@ -28,7 +28,7 @@ public class MusicCommands extends ListenerAdapter{
 			return;
 		}
 		
-		//Play music
+		//<Play music>
 		if(args[0].equalsIgnoreCase(Main.prefix + "play")) {
 			
 			//User only provides command with no args
@@ -69,7 +69,7 @@ public class MusicCommands extends ListenerAdapter{
 			
 		}
 		
-		//Stop music
+		//<Stop music>
 		else if(args[0].equalsIgnoreCase(Main.prefix + "stop") || args[0].equalsIgnoreCase(Main.prefix + "shoo")) {
 			
 			PlayerManager playerManager = PlayerManager.getInstance();
@@ -98,7 +98,7 @@ public class MusicCommands extends ListenerAdapter{
 			stopEmbed.clear();
 		}
 		
-		//Skip song
+		//<Skip song>
 		else if(args[0].equalsIgnoreCase(Main.prefix + "skip")) {
 			
 			PlayerManager playerManager = PlayerManager.getInstance();
@@ -129,7 +129,7 @@ public class MusicCommands extends ListenerAdapter{
 			}
 		}
 		
-		//Now playing
+		//<Now playing>
 		else if(args[0].equalsIgnoreCase(Main.prefix + "now")) {
 			
 			PlayerManager playerManager = PlayerManager.getInstance();
@@ -156,7 +156,7 @@ public class MusicCommands extends ListenerAdapter{
 			nowEmbed.clear();
 		}
 		
-		//Come
+		//<Come>
 		else if(args[0].equalsIgnoreCase(Main.prefix + "come")) {
 			PlayerManager playerManager = PlayerManager.getInstance();
 			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
@@ -169,7 +169,7 @@ public class MusicCommands extends ListenerAdapter{
 			}
 		}
 		
-		//Pause
+		//<Pause>
 		else if(args[0].equalsIgnoreCase(Main.prefix + "pause")) {
 			
 			PlayerManager playerManager = PlayerManager.getInstance();

@@ -28,7 +28,7 @@ public class FilterCommands extends ListenerAdapter{
 			}
 			else {
 				
-				if(args[1].equalsIgnoreCase("status")) {		//Check filter status
+				if(args[1].equalsIgnoreCase("status")) {		//<Check filter status>
 					
 					event.getChannel().sendTyping().queue();
 					
@@ -40,7 +40,7 @@ public class FilterCommands extends ListenerAdapter{
 					}
 					
 				}
-				else if(args[1].equalsIgnoreCase("toggle")) {	//Enable/disable filter
+				else if(args[1].equalsIgnoreCase("toggle")) {	//<Enable/disable filter>
 					
 					event.getChannel().sendTyping().queue();
 					

@@ -19,7 +19,7 @@ public class InfoCommands extends ListenerAdapter{
 		
 		//COMMANDS
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "commands")) {			//Display embed with list of commands
+		if(args[0].equalsIgnoreCase(Main.prefix + "commands")) {			//<Display embed with list of commands>
 			
 			EmbedBuilder commands = new EmbedBuilder();
 			commands.setTitle("What do you need? ⭐\n");
@@ -66,7 +66,7 @@ public class InfoCommands extends ListenerAdapter{
 			commands.clear();
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {			//Bot bio embed
+		else if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {			//<Bot bio embed>
 			//TODO - add more detail to bio
 			EmbedBuilder misaki = new EmbedBuilder();
 			misaki.setTitle("Misaki desu! ⭐");

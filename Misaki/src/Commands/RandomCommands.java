@@ -21,7 +21,7 @@ public class RandomCommands extends ListenerAdapter{
 		//RANDOMIZER
 		Random rand = new Random();
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "coin")) {		//random of 2
+		if(args[0].equalsIgnoreCase(Main.prefix + "coin")) {		//<random of 2>
 			
 			int number = rand.nextInt(2);
 			
@@ -43,7 +43,7 @@ public class RandomCommands extends ListenerAdapter{
 			
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "dice")) {		//random of 6
+		else if(args[0].equalsIgnoreCase(Main.prefix + "dice")) {		//<random of 6>
 			
 			int number = rand.nextInt(6);
 			

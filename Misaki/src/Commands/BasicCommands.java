@@ -19,7 +19,7 @@ public class BasicCommands extends ListenerAdapter{
 		
 		//COMMANDS
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "ping")) {		//Show latency
+		if(args[0].equalsIgnoreCase(Main.prefix + "ping")) {		//<Show latency>
 			
 			event.getChannel().sendTyping().queue();
 			long ping = event.getJDA().getPing();
@@ -43,7 +43,7 @@ public class BasicCommands extends ListenerAdapter{
 			
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//invite create
+		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//<invite create>
 			
 			if(args.length == 1) {
 				//Correct user if command improperly typed
