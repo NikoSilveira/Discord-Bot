@@ -37,7 +37,7 @@ public class InfoCommands extends ListenerAdapter{
 			+ "**--announce:** send an announcement through misaki\n"
 			+ "**--ara:** Misaki sends a small greet to you\n"
 			+ "**--call:** Misaki calls everyone out for you\n"
-			+ "**del n:** Misaki deletes the last n messages in the chat \n"
+			+ "**--del n:** Misaki deletes the last n messages in the chat \n"
 			+ "**--f:** Misaki pays her respects in the chat\n"
 			+ "**--talk:** send a message through misaki\n"
 			+ "**--talk del:** send a message through misaki and delete command\n"
@@ -46,7 +46,7 @@ public class InfoCommands extends ListenerAdapter{
 			+ "**--play [URL]:**Plays a song from a given URL\n"
 			+ "**--pause:** Pauses/resumes the audio track\n"
 			+ "**--skip:** Skip the song that is currently playing\n"
-			+ "**--stop/shoo:** Stop music, clear queue and force bot out of VC\n"
+			+ "**--stop:** Stop music, clear queue and force bot out of VC\n"
 			+ "**--now:** Show current track info\n"
 			+ "**--come:** Change Misaki to the VC you are currently in\n"
 			

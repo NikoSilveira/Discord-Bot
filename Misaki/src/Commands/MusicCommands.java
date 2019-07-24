@@ -70,7 +70,7 @@ public class MusicCommands extends ListenerAdapter{
 		}
 		
 		//<Stop music>
-		else if(args[0].equalsIgnoreCase(Main.prefix + "stop") || args[0].equalsIgnoreCase(Main.prefix + "shoo")) {
+		else if(args[0].equalsIgnoreCase(Main.prefix + "stop")) {
 			
 			PlayerManager playerManager = PlayerManager.getInstance();
 			GuildMusicManager musicManager = playerManager.getGuildMusicManager(event.getGuild());
