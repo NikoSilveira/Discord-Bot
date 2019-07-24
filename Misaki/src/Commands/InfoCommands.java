@@ -70,10 +70,13 @@ public class InfoCommands extends ListenerAdapter{
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {			//<Bot bio embed>
-			//TODO - add more detail to bio
+			
 			EmbedBuilder misaki = new EmbedBuilder();
 			misaki.setTitle("Misaki desu! ⭐");
-			misaki.setDescription("Multipurpose waifu capable of sending messages, reacting to events, managing chat filters, streaming music and more!");
+			misaki.setDescription("Waifu bot capable of streaming music, generating server invite links, interacting with users and more!");
+			misaki.addField("How do I interact with Misaki?","Just use the prefix '--' followed by a command.",true);
+			misaki.addField("What commands do you have?","Type *--commands* and I will display the list of available commands for you.",true);
+			misaki.addField("Can we hold hands?","**No.**",true);
 			misaki.setColor(0xe8c205);
 			misaki.setFooter("Created by OutFasted",null);
 			
