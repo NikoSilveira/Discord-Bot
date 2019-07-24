@@ -8,7 +8,7 @@ public class FilterCommands extends ListenerAdapter{
 	
 	public static boolean filterEnabled = false;
 
-	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+	/*public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
@@ -60,5 +60,5 @@ public class FilterCommands extends ListenerAdapter{
 			
 		}
 			
-	}
+	}*/
 }

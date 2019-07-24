@@ -54,9 +54,11 @@ public class InfoCommands extends ListenerAdapter{
 			+ "**--coin:** throw a coin for heads or tails\n"
 			+ "**--dice:** throw a dice and get a number from 1 to 6\n"
 			
+			/*
 			+ "\n*Chat filter commands*\n"
 			+ "**--filter status:** check if the filter is enabled/disabled\n"
-			+ "**--filter toggle:** enable/disable chat filter\n");
+			+ "**--filter toggle:** enable/disable chat filter\n"*/
+			);
 			
 			commands.setColor(0xe8c205);
 			
