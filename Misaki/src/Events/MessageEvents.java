@@ -26,7 +26,7 @@ public class MessageEvents extends ListenerAdapter{
 		
 		//EVENTS
 		
-		//reacting to meme mention
+		/*//reacting to meme mention
 		for(int i=0; i < args.length; i++) {
 			if(args[i].equalsIgnoreCase("meme") || args[i].equalsIgnoreCase("Meme") || args[i].equalsIgnoreCase("memes") || args[i].equalsIgnoreCase("Memes")) {
 				
@@ -39,7 +39,7 @@ public class MessageEvents extends ListenerAdapter{
 			}
 		}
 			
-		/*
+		
 		//Call everyone to voice chat
 		for(int i=0; i < args.length; i++) {
 			if(args[i].equalsIgnoreCase("vc") || args[i].equalsIgnoreCase("Vc") || args[i].equalsIgnoreCase("VC") || 
