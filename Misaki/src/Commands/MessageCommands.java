@@ -22,7 +22,7 @@ public class MessageCommands extends ListenerAdapter{
 		
 		//COMMANDS
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "ara")) {				//<Ara Ara>
+		if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {				//<Ara Ara>
 			
 			event.getChannel().sendTyping().queue();
 			event.getChannel().sendMessage("Ara Ara " + event.getAuthor().getName() + " ⭐").queue();
@@ -69,14 +69,14 @@ public class MessageCommands extends ListenerAdapter{
 			
 			event.getChannel().sendTyping().queue();
 			event.getMessage().delete().queue();
-			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " has an announcement: " + String.join(" ",args)).queue();
+			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " has an announcement!: " + String.join(" ",args)).queue();
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "call")) {		//<Call everyone>
 			
 			event.getChannel().sendTyping().queue();
 			event.getMessage().delete().queue();;
-			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " is summoning you!").queue();
+			event.getChannel().sendMessage("@everyone, "+ event.getAuthor().getName() + " is summoning you! ⭐").queue();
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "del")) {		//<delete last n messages>
@@ -88,7 +88,7 @@ public class MessageCommands extends ListenerAdapter{
 				
 				if(Integer.parseInt(args[1]) > 100) {
 					//Limit user to 100 deleted messages
-					event.getChannel().sendMessage("Too many messages! 100 is the limit, baka").queue();
+					event.getChannel().sendMessage("Too many messages! 100 is the limit").queue();
 				}
 				else {
 					

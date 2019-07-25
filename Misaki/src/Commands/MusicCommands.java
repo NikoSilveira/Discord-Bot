@@ -49,7 +49,7 @@ public class MusicCommands extends ListenerAdapter{
 							audioManager.openAudioConnection(event.getMember().getVoiceState().getChannel());	//join the vc where the user is
 						}
 						else if(event.getMember().getVoiceState().getChannel() == null) {
-							event.getChannel().sendMessage("You are not in VC. Join a channel first and then ask me to join").queue();
+							event.getChannel().sendMessage("You are not in VC. Join a channel first and then ask me to join!").queue();
 						}
 						
 					}
@@ -62,7 +62,7 @@ public class MusicCommands extends ListenerAdapter{
 				} 
 				
 				else if(!isURL(args[1])) {	//invalid argument
-					event.getChannel().sendMessage("That is not an URL, baka").queue();
+					event.getChannel().sendMessage("That is not an URL!").queue();
 				}
 				
 			}
@@ -125,7 +125,7 @@ public class MusicCommands extends ListenerAdapter{
 			
 			if(player.getPlayingTrack() == null) {	//Skipped the last song
 				audioManager.closeAudioConnection();
-				event.getChannel().sendMessage("No more songs in queue, bye ⭐").queue();
+				event.getChannel().sendMessage("No more songs in queue, bye! ⭐").queue();
 			}
 		}
 		
@@ -137,7 +137,7 @@ public class MusicCommands extends ListenerAdapter{
 			AudioPlayer player = musicManager.player;
 			
 			if(player.getPlayingTrack() == null) {	//Empty queue
-				event.getChannel().sendMessage("No songs playing right now").queue();
+				event.getChannel().sendMessage("No songs playing right now ✨").queue();
 				return;
 			}
 			
@@ -185,16 +185,21 @@ public class MusicCommands extends ListenerAdapter{
 				
 				if(player.isPaused()) {		//resume
 					player.setPaused(false);
-					pauseEmbed.setTitle("Resumed");
+					pauseEmbed.setTitle("\\u25B6 Resumed");
 				}
 				else if(!player.isPaused()) {	//pause
 					player.setPaused(true);
-					pauseEmbed.setTitle("Paused");
+					pauseEmbed.setTitle("u\23F8 Paused");
 				}
 				
 				pauseEmbed.setFooter("" + event.getMember().getUser().getName(), event.getMember().getUser().getAvatarUrl());
 				event.getChannel().sendMessage(pauseEmbed.build()).queue();
 				pauseEmbed.clear();
+			}
+			else {
+				//User tries to pause while no music is playing
+				event.getMessage().delete().queue();
+				event.getChannel().sendMessage(event.getMember().getUser().getName() + ", no tracks are being streamed!").queue();;
 			}
 		}
 		

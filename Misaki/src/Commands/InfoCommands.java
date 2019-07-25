@@ -27,7 +27,7 @@ public class InfoCommands extends ListenerAdapter{
 			commands.setDescription
 			( "\n*Info/help*\n"
 			+ "**--commands**: display misaki's list of commands\n"
-			+ "**--misaki:** display misaki's bio\n"
+			+ "**--info:** display misaki's bio\n"
 			
 			+ "\n*Basic commands*\n"
 			+ "**--invite:** generate invite link to server\n"
@@ -35,11 +35,11 @@ public class InfoCommands extends ListenerAdapter{
 			
 			+ "\n*Text chat commands*\n"
 			+ "**--announce [text]:** send an announcement through misaki\n"
-			+ "**--ara:** Misaki sends a small greet to you\n"
 			+ "**--call:** Misaki calls everyone out for you\n"
 			+ "**--del n:** Misaki deletes the last n messages in the chat \n"
 			+ "**--f:** Misaki pays her respects in the chat\n"
 			+ "**--f [text]:** user pays respect to [text]\n"
+			+ "**--misaki:** Misaki sends a small greet to you\n"
 			+ "**--talk [text]:** send a message through misaki\n"
 			+ "**--talk del [text]:** send a message through misaki and delete command\n"
 			
@@ -69,7 +69,7 @@ public class InfoCommands extends ListenerAdapter{
 			commands.clear();
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {			//<Bot bio embed>
+		else if(args[0].equalsIgnoreCase(Main.prefix + "info")) {			//<Bot bio embed>
 			
 			EmbedBuilder misaki = new EmbedBuilder();
 			misaki.setTitle("Misaki desu! ⭐");
