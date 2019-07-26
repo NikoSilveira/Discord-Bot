@@ -39,7 +39,7 @@ public class window extends JPanel {
 			}
 		});
 		btnNewButton.setBackground(new Color(255, 140, 0));
-		btnNewButton.setBounds(120, 78, 100, 23);
+		btnNewButton.setBounds(114, 78, 100, 23);
 		btnNewButton.setFocusPainted(false);
 		add(btnNewButton);
 		
