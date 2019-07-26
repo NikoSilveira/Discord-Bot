@@ -1,6 +1,7 @@
 package Commands;
 
 import java.util.List;
+import java.util.Random;
 
 import Outfasted.Misaki.Main;
 import net.dv8tion.jda.core.EmbedBuilder;
@@ -14,6 +15,16 @@ public class MessageCommands extends ListenerAdapter{
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
+		String[] greets = {
+				"Ara ara [member] ⭐",
+				"Ara? What brings you around [member]?",
+				"Oh, so you're [member]?",
+				"Oh, hello there [member]!",
+				"Pleased to meet you [member]! ✨",
+				"[member]! What an interesting name! ⭐",
+				"Ara Ara [member], what are you up to today?"
+			};
+		
 		//Avoid responding to other bots
 		if (event.getAuthor().isBot()) {
 			return;
@@ -22,10 +33,13 @@ public class MessageCommands extends ListenerAdapter{
 		
 		//COMMANDS
 		
-		if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {				//<Ara Ara>
+		if(args[0].equalsIgnoreCase(Main.prefix + "misaki")) {			//<Greet>
+			
+			Random rand = new Random();
+			int number = rand.nextInt(greets.length);
 			
 			event.getChannel().sendTyping().queue();
-			event.getChannel().sendMessage("Ara Ara " + event.getAuthor().getName() + " ⭐").queue();
+			event.getChannel().sendMessage(greets[number].replace("[member]", event.getMember().getAsMention())).queue();
 		}
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "talk")) {		//<Talk through bot>
