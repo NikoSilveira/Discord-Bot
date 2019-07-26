@@ -29,13 +29,13 @@ public class window extends JPanel {
 				//Action to perform when button is pressed
 				
 				int dialogButton = JOptionPane.YES_NO_OPTION;
-	            JOptionPane.showConfirmDialog (null, "Are you sure?","WARNING", dialogButton);
-	            if(dialogButton == JOptionPane.YES_OPTION) {
-	                System.exit(0);
-	            if(dialogButton == JOptionPane.NO_OPTION) {
-	                  remove(dialogButton);
-	                }
-	              }
+	            		JOptionPane.showConfirmDialog (null, "Are you sure?","WARNING", dialogButton);
+	            		if(dialogButton == JOptionPane.YES_OPTION) {
+	                		System.exit(0);
+	            		if(dialogButton == JOptionPane.NO_OPTION) {
+	                  		remove(dialogButton);
+	                		}
+	              		}
 			}
 		});
 		btnNewButton.setBackground(new Color(255, 140, 0));
