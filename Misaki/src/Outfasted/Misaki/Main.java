@@ -41,10 +41,11 @@ public class Main {
 			sc.close();
 		}
 		
-		//Assembly of functionalities
+		//Set bot status and info
 		jda.getPresence().setStatus(OnlineStatus.IDLE);
 		jda.getPresence().setGame(Game.watching("Toaru Kagaku no Accelerator.  || --commands"));
 		
+		//Assembly of functionalities
 		jda.addEventListener(new BasicCommands());
 		jda.addEventListener(new RandomCommands());
 		jda.addEventListener(new FilterCommands());

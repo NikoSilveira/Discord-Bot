@@ -15,6 +15,7 @@ public class MessageCommands extends ListenerAdapter{
 		
 		String[] args = event.getMessage().getContentRaw().split("\\s+");
 		
+		//Messages for greet command
 		String[] greets = {
 				"Ara ara [member] ⭐",
 				"Ara? What brings you around [member]?",

@@ -56,7 +56,7 @@ public class MusicCommands extends ListenerAdapter{
 					
 					PlayerManager playerManager = PlayerManager.getInstance();
 					playerManager.loadAndPlay(event.getChannel(), trackURL);
-					playerManager.getGuildMusicManager(event.getGuild()).player.setVolume(65);
+					playerManager.getGuildMusicManager(event.getGuild()).player.setVolume(65);	//default volume
 					
 					event.getMessage().delete().queue();
 				} 
@@ -82,6 +82,7 @@ public class MusicCommands extends ListenerAdapter{
 				return;
 			}
 			
+			//Stop music
 			musicManager.scheduler.getQueue().clear();
 			musicManager.player.stopTrack();
 			musicManager.player.setPaused(false);
@@ -165,7 +166,7 @@ public class MusicCommands extends ListenerAdapter{
 				audioManager.openAudioConnection(event.getMember().getVoiceState().getChannel());	//Make the bot change VC to where the user is
 			}
 			else if(musicManager.player.getPlayingTrack() == null) {
-				event.getChannel().sendMessage("I can only come to a channel if I'm already streaming in another channel!").queue();
+				event.getChannel().sendMessage("I can only come to a channel if I'm already streaming in another channel!").queue();	//Bot is not streaming
 			}
 		}
 		

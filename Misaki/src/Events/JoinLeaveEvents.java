@@ -35,7 +35,6 @@ public class JoinLeaveEvents extends ListenerAdapter{
 		
 		//Add role
 		//event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRolesByName("Role", true)).complete();
-		
 	}
 	
 	//Member Leave
@@ -49,7 +48,6 @@ public class JoinLeaveEvents extends ListenerAdapter{
 		leave.setDescription(messagesLeave[number].replace("[member]", event.getMember().getAsMention()));
 		
 		event.getGuild().getDefaultChannel().sendMessage(leave.build()).queue();
-		
 	}
 	
 }
