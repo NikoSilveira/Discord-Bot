@@ -65,6 +65,11 @@ public class MessageCommands extends ListenerAdapter{
 		
 		else if(args[0].equalsIgnoreCase(Main.prefix + "announce")) {	//<Announcement>
 			
+			if(args.length == 1) {	//User uses command but doesn't include text
+				event.getChannel().sendMessage("Oh? You didn't tell me what you wanted to announce!").queue();
+				return;
+			}
+			
 			args[0] = "";
 			
 			event.getChannel().sendTyping().queue();
