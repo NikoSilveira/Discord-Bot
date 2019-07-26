@@ -56,7 +56,7 @@ public class MessageCommands extends ListenerAdapter{
 				args[0] = "";
 				
 				EmbedBuilder fEmbed = new EmbedBuilder();
-				fEmbed.setTitle(event.getMember().getUser().getName() + " has paid his respects for " + String.join(" ",args));
+				fEmbed.setTitle(event.getMember().getUser().getName() + " has paid his/her respects for " + String.join(" ",args));
 				fEmbed.setColor(0xe8c205);
 				event.getChannel().sendMessage(fEmbed.build()).queue();;
 				fEmbed.clear();

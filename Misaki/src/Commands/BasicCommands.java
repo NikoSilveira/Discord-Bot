@@ -43,18 +43,11 @@ public class BasicCommands extends ListenerAdapter{
 			
 		}
 		
-		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//<invite create>
+		else if(args[0].equalsIgnoreCase(Main.prefix + "invite")) {		//<invite>
 			
-			if(args.length == 1) {
-				//Correct user if command improperly typed
-				event.getChannel().sendMessage("To use the invite command correctly, type: **--invite create**").queue();
-			}
-			
-			else if(args[1].equalsIgnoreCase("create")){
-				//Generate invite link
-				event.getChannel().sendMessage("Ara " + event.getAuthor().getName() + ", want to invite someone? ✨").queue();
-				event.getChannel().sendMessage("" + event.getChannel().createInvite().complete().getURL()).queue();
-			}
+			//Generate invite link
+			event.getChannel().sendMessage("Ara " + event.getAuthor().getName() + ", want to invite someone? ✨").queue();
+			event.getChannel().sendMessage("" + event.getChannel().createInvite().complete().getURL()).queue();
 			
 		}
 		
