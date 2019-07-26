@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner; 
 
 import javax.security.auth.login.LoginException;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
 import Commands.BasicCommands;
 import Commands.FilterCommands;
@@ -30,6 +32,19 @@ public class Main {
 	
 	//Main method
 	public static void main(String[] args) throws LoginException, FileNotFoundException{
+		
+		//GUI for shutdown
+		JFrame frame = new JFrame();
+		window shutDown = new window();
+		
+		shutDown.setVisible(true);
+		frame.add(shutDown);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setResizable(false);
+		frame.setSize(330,150);
+		frame.setLocationRelativeTo(null);
+		frame.setTitle("Misaki - shut down");
 		
 		//Scanner
 		File file = new File("C:\\Users\\Nicolas Silveira\\git\\Discord-Bot\\Misaki\\config.secrets");
