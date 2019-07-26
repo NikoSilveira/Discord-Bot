@@ -5,7 +5,7 @@ https://github.com/DV8FromTheWorld/JDA
 Audio streaming supported by LavaPlayer using Maven
 https://github.com/sedmelluq/lavaplayer
 
-#Setup
+SETUP
 
 1. Create a Java project and add the JDA libraries.
 
